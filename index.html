@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta Interactiva</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+            color: #333;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        h1 {
+            color: #fff;
+            font-size: 40px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            margin-bottom: 40px;
+        }
+        .btn {
+            padding: 15px 30px;
+            font-size: 22px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 50px;
+            transition: 0.3s ease-in-out;
+            position: absolute;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .btn:hover {
+            opacity: 0.8;
+            transform: scale(1.05);
+        }
+        .yes-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .no-btn {
+            background-color: #f44336;
+            color: white;
+        }
+        .yes-box {
+            width: 180px;
+            height: 60px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 22px;
+            text-align: center;
+            line-height: 60px;
+            margin: 30px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
+        }
+        .yes-box:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+        .happy-letter {
+            display: none;
+            background-color: #ffeb3b;
+            color: #333;
+            padding: 25px;
+            font-size: 20px;
+            margin-top: 40px;
+            border-radius: 10px;
+            width: 80%;
+            margin-left: 10%;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        .happy-letter.show {
+            display: block;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <h1>¿Maria Quieres ser mi enamorada?</h1>
+
+    <!-- Cuadro estático para "Sí" -->
+    <div class="yes-box" onclick="showHappyLetter()">Sí</div>
+
+    <!-- Botón de "No" que se moverá -->
+    <button class="btn no-btn" onclick="moveButton()">No</button>
+
+    <!-- Carta de felicidad -->
+    <div class="happy-letter" id="happyLetter">
+        ¡Yay! 🎉<br>
+        ¡Gracias por aceptar ser mi enamorada! 😍<br>
+        "En este preciso momento, cuando me dices que aceptas ser mi enamorada,
+        siento una mezcla de alegría y emoción que me llena por completo. No puedo
+        evitar sonreír como un niño, porque todo lo que había soñado y esperado ahora
+        se convierte en una realidad. Mi corazón late más rápido, pero de una forma 
+        tranquila, como si supiera que este es el comienzo de algo muy especial. 
+        Quiero que sepas que en este instante, todo lo que pasa por mi mente es lo 
+        afortunado que me siento de tenerte a mi lado, de poder compartir mis días contigo.
+        Prometo que cada momento que compartamos será valioso, porque lo que más 
+        quiero en este mundo es verte feliz. Hoy, en este preciso instante, mi 
+        vida se siente completa, porque tú has decidido estar en ella. Sé que no nos 
+        conocemos mucho, pero desde el primer momento que te vi, me gustaste. 
+        Me daba un poco de nervios hablar contigo, pero quiero que sepas que,
+        a medida que te voy conociendo, mi deseo de entenderte y saber qué te
+        gusta y qué no, crece más💗. Mi objetivo es mejorar cada día para poder 
+        tratarte como la princesa hermosa 👸 que eres. Te quiero, y me encantaría
+        poder estar a tu lado para hacerte sentir tan especial como te mereces. ❤️
+    </div>
+
+    <script>
+        // Función que mueve el botón "No" cuando se presiona
+        function moveButton() {
+            const button = document.querySelector(".no-btn");
+            const randomX = Math.floor(Math.random() * (window.innerWidth - 200));  // Posición horizontal aleatoria
+            const randomY = Math.floor(Math.random() * (window.innerHeight - 50)); // Posición vertical aleatoria
+            button.style.left = randomX + "px";
+            button.style.top = randomY + "px";
+        }
+
+        // Función para mostrar la carta de felicidad cuando se hace clic en "Sí"
+        function showHappyLetter() {
+            const happyLetter = document.getElementById("happyLetter");
+            happyLetter.classList.add("show");
+        }
+    </script>
+</body>
+</html>
+
